@@ -20,7 +20,6 @@ try{
     res.json(student);
     
 }catch(error){
-    console.error(error);
     res.status(500).json({ error: "Internal server error" });
 }
 }
@@ -55,7 +54,7 @@ export const approveGatePass = async (req , res )=>{
         )
         const newstudent = await Student.findOne({email:req.body.email});
         
-        res.json(newstudent);
+        res.status(201).json("Gate Pass successfully Approved");
 
     }catch(error){
         console.error(error);
